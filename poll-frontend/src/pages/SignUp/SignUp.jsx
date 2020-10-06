@@ -1,12 +1,12 @@
 import React from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 
-const SignUp = () => {
-    return (
-        <div>
-            <SignUpForm />
-        </div>
-    );
+const SignUp = (props) => {
+   return (
+      <div>
+         <SignUpForm {...props} />
+      </div>
+   );
 };
 
 export default SignUp;
