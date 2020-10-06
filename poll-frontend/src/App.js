@@ -13,33 +13,37 @@ import PollDetails from "./pages/PollDetails/PollDetails";
 import CreatePoll from "./pages/CreatePoll/CreatePoll";
 
 function App() {
-   return (
-      <Router>
-         <div className="App">
-            <NavBar />
-            <AuthContextProvider>
-               <Switch>
-                  <PrivateRoute exact path="/" component={Dashboard} />
-                  <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  <PrivateRoute
-                     exact
-                     path="/create-poll"
-                     component={CreatePoll}
-                  />
-                  <PrivateRoute
-                     exact
-                     path="/poll/:id"
-                     component={PollDetails}
-                  />
-                  <Route path="/login" component={Login} />
-                  <Route path="/signup" component={SignUp} />
-                  <Route path="/Logout" component={Logout} />
-                  <Route path="/vote/:id" component={Vote} />
-               </Switch>
-            </AuthContextProvider>
-         </div>
-      </Router>
-   );
+    return (
+        <Router>
+            <div className="App">
+                <NavBar />
+                <AuthContextProvider>
+                    <Switch>
+                        <PrivateRoute exact path="/" component={Dashboard} />
+                        <PrivateRoute
+                            exact
+                            path="/dashboard"
+                            component={Dashboard}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/create-poll"
+                            component={CreatePoll}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/poll/:id"
+                            component={PollDetails}
+                        />
+                        <Route path="/login" component={Login} />
+                        <Route path="/signup" component={SignUp} />
+                        <Route path="/Logout" component={Logout} />
+                        <Route path="/vote/:id" component={Vote} />
+                    </Switch>
+                </AuthContextProvider>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
