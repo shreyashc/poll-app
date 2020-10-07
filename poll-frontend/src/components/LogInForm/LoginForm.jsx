@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Error from "./Error";
 import { AuthContext } from "../../contexts/AuthContext";
-
+import "../SignUpForm/style.scss";
+import { Link } from "react-router-dom";
 const initialValues = {
     username: "",
     password: "",
@@ -43,14 +44,17 @@ const LoginForm = (props) => {
     });
 
     return (
-        <div>
+        <div className="form-container">
             <form onSubmit={formik.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </label>
                     <input
                         type="text"
                         name="username"
                         id="username"
+                        placeholder="username"
                         value={formik.values.username}
                         onChange={formik.handleChange}
                     />
@@ -59,11 +63,14 @@ const LoginForm = (props) => {
                     ) : null}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </label>
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         id="password"
+                        placeholder="password"
                         value={formik.values.password}
                         onChange={formik.handleChange}
                     />
@@ -71,8 +78,11 @@ const LoginForm = (props) => {
                         <Error msg={formik.errors.password} />
                     ) : null}
                 </div>
-                {error && <div>{error}</div>}
-                <input type="submit" value="Login" />
+                {error && <div className="error">{error}</div>}
+                <input type="submit" value="Login" id="submit" />
+                <div className="info">
+                    Don't have an account? <Link to="/signup">Sign Up</Link>
+                </div>
             </form>
         </div>
     );
