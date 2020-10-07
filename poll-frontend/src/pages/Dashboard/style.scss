@@ -1,0 +1,59 @@
+.container {
+    width: 90%;
+    margin: 10px auto;
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-family: "Permanent Marker", cursive;
+    }
+    .user {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .username {
+            margin-left: auto;
+            margin-right: 10px;
+            font-weight: lighter;
+            text-transform: uppercase;
+        }
+
+        button {
+            background: #1c8ce7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.04);
+            }
+        }
+    }
+    .heading {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 20px;
+        color: #4d4a4a;
+        text-transform: uppercase;
+    }
+    .polls {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .polls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

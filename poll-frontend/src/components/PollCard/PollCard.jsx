@@ -1,13 +1,19 @@
 import React from "react";
-
+import "./style.scss";
 const PollCard = ({ poll, ...props }) => {
     const onClick = () => {
         props.history.push(`/poll/${poll._id}`);
     };
     return (
-        <div>
-            <div onClick={onClick}>{poll.question}</div>
-            <div>{poll.active ? "active" : "ended"} </div>
+        <div
+            className={
+                poll.active
+                    ? "poll-active card-container"
+                    : "poll-ended card-container"
+            }
+            onClick={onClick}
+        >
+            <div className="question">{poll.question}</div>
         </div>
     );
 };

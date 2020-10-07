@@ -48,7 +48,7 @@ const LoginForm = (props) => {
             <form onSubmit={formik.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">
-                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <i className="fa fa-user" aria-hidden="true"></i>
                     </label>
                     <input
                         type="text"
@@ -64,13 +64,14 @@ const LoginForm = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i className="fa fa-lock" aria-hidden="true"></i>
                     </label>
                     <input
                         type="password"
                         name="password"
                         id="password"
                         placeholder="password"
+                        autoComplete="on"
                         value={formik.values.password}
                         onChange={formik.handleChange}
                     />
