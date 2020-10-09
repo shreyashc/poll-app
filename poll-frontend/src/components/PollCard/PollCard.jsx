@@ -1,9 +1,11 @@
 import React from "react";
+import Moment from "react-moment";
 import "./style.scss";
 const PollCard = ({ poll, ...props }) => {
     const onClick = () => {
         props.history.push(`/poll/${poll._id}`);
     };
+    const date = new Date(poll.createdAt);
     return (
         <div
             className={
@@ -14,6 +16,9 @@ const PollCard = ({ poll, ...props }) => {
             onClick={onClick}
         >
             <div className="question">{poll.question}</div>
+            <div className="date">
+                <Moment date={date} format="DD/MM/YYYY" />
+            </div>
         </div>
     );
 };

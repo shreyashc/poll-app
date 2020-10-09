@@ -2,6 +2,7 @@
     width: 90%;
     margin: 10px auto;
     h1 {
+        margin-top: 5px;
         position: absolute;
         top: 0;
         left: 0;
@@ -12,9 +13,14 @@
         font-family: "Permanent Marker", cursive;
     }
     .user {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        z-index: 0;
         .username {
             margin-left: auto;
             margin-right: 10px;
@@ -30,7 +36,7 @@
             font-size: 15px;
             border-radius: 20px;
             text-transform: uppercase;
-
+            z-index: 0;
             &:hover {
                 cursor: pointer;
                 transform: scale(1.04);
@@ -38,7 +44,7 @@
         }
     }
     .heading {
-        margin-top: 20px;
+        margin-top: 50px;
         padding: 10px;
         font-size: 20px;
         color: #4d4a4a;
@@ -48,6 +54,15 @@
         display: flex;
         flex-wrap: wrap;
     }
+    .dashboard-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 100px;
+        color: #4d4a4a;
+        transform: translate(-50%, -50%);
+        transition: 1s ease;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -55,5 +70,24 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .container {
+        width: 98%;
+        h1 {
+            position: static;
+            font-size: 30px;
+        }
+        .user {
+            position: static;
+            justify-content: center;
+
+            .fa-user {
+                font-size: 40px;
+            }
+            .username {
+                margin-left: 0;
+            }
+        }
     }
 }

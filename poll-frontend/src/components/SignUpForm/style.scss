@@ -54,6 +54,13 @@
         border: none;
         border-radius: 12px;
         outline: none;
+
+        &:disabled {
+            background-color: rgb(105, 105, 105);
+        }
+        &:hover {
+            cursor: pointer;
+        }
     }
     .info {
         text-align: center;
@@ -72,4 +79,9 @@
     padding: 0;
     margin: 0;
     text-align: center;
+}
+
+.loading-spinner-container {
+    display: flex;
+    justify-content: center;
 }

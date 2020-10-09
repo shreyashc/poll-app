@@ -1,0 +1,46 @@
+.option-details-container {
+    padding: 10px 10px;
+    margin: 10px 20px 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #8dd7ff;
+    background: #90ccff;
+    max-width: 500px;
+    .wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .option-votes {
+        margin-left: auto;
+        padding: 5px 10px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-color: #36ec26;
+    }
+    .arrow {
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: #52bbff;
+
+        .fa {
+            margin: 0;
+            padding: 0;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .voters {
+        display: none;
+        background: #60befc;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        transition: 0.4s ease;
+    }
+
+    .show {
+        display: block;
+    }
+}

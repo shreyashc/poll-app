@@ -8,16 +8,24 @@ import { AuthContext } from "../../contexts/AuthContext";
 const Dashboard = (props) => {
     const [polls, setPolls] = useState([]);
     const { user } = useContext(AuthContext);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        let isMounted = true;
+        if (isMounted) setLoading(true);
         axiosInstance
             .get("polls/user/124")
             .then((response) => {
+                if (isMounted) setLoading(false);
                 setPolls(response.data);
             })
             .catch((err) => {
+                if (isMounted) setLoading(false);
                 console.log(err);
             });
+        return () => {
+            return (isMounted = false);
+        };
     }, []);
 
     const addPoll = () => {
@@ -26,16 +34,25 @@ const Dashboard = (props) => {
     return (
         <div className="container">
             <h1>Dashboard</h1>
+
             <div className="user">
                 <div className="username">{user.username}</div>
-                <Logout />
+                <Logout {...props} />
             </div>
+            {loading ? (
+                <div className="dashboard-loading">
+                    <div className="loading-spinner-container">
+                        <i className="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+            ) : null}
             <div className="heading">My Polls</div>
             <div className="polls">
                 <div className="add-poll card-container" onClick={addPoll}>
                     <div className="fas fa-plus"></div>
                     <div className="text">New Poll</div>
                 </div>
+
                 {polls.map((poll, index) => (
                     <PollCard poll={poll} key={index} {...props} />
                 ))}

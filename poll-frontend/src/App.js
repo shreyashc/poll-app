@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Vote from "./pages/Vote/Vote";
 import PollDetails from "./pages/PollDetails/PollDetails";
 import CreatePoll from "./pages/CreatePoll/CreatePoll";
+import Success from "./pages/Success/Success";
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                         <Route path="/signup" component={SignUp} />
                         <Route path="/Logout" component={Logout} />
                         <Route path="/vote/:id" component={Vote} />
+                        <Route path="/success" component={Success} />
                     </Switch>
                 </AuthContextProvider>
             </div>

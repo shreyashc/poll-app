@@ -18,12 +18,15 @@ const validationSchema = Yup.object({
 
 const LoginForm = (props) => {
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
     const { dispatch } = useContext(AuthContext);
     const onSubmit = async (values) => {
+        setLoading(true);
         axiosInstance
             .post("auth/login/", values)
             .then((response) => {
                 setError(null);
+                setLoading(false);
                 const { id, username } = response.data;
                 dispatch({
                     type: "LOGGED_IN",
@@ -32,6 +35,7 @@ const LoginForm = (props) => {
                 props.history.replace("/dashboard");
             })
             .catch((error) => {
+                setLoading(false);
                 console.log(error);
                 setError("Invalid Username/password");
             });
@@ -80,7 +84,19 @@ const LoginForm = (props) => {
                     ) : null}
                 </div>
                 {error && <div className="error">{error}</div>}
-                <input type="submit" value="Login" id="submit" />
+
+                {loading ? (
+                    <div className="loading-spinner-container">
+                        <i className="fas fa-spinner fa-spin"></i>
+                    </div>
+                ) : null}
+
+                <input
+                    type="submit"
+                    value={loading ? "Please Wait" : "Login"}
+                    id="submit"
+                    disabled={loading}
+                />
                 <div className="info">
                     Don't have an account? <Link to="/signup">Sign Up</Link>
                 </div>

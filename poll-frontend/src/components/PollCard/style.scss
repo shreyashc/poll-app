@@ -4,6 +4,7 @@
     display: flex;
     width: 200px;
     height: 150px;
+    flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
     transition: 0.4s ease;
@@ -38,4 +39,12 @@
         padding: 5px;
         font-size: 12px;
     }
+}
+
+.question {
+    overflow: hidden;
+}
+
+.date {
+    text-align: right;
 }
