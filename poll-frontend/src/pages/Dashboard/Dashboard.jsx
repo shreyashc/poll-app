@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axiosInstance from "../../client/apiClient";
 import PollCard from "../../components/PollCard/PollCard";
-import Logout from "../../components/Logout/Logout";
 import "./style.scss";
 
 import { AuthContext } from "../../contexts/AuthContext";
@@ -33,12 +32,13 @@ const Dashboard = (props) => {
     };
     return (
         <div className="container">
+            <div className="user">
+                <div className="username">
+                    Welcome, <span>{user.username}</span>
+                </div>
+            </div>
             <h1>Dashboard</h1>
 
-            <div className="user">
-                <div className="username">{user.username}</div>
-                <Logout {...props} />
-            </div>
             {loading ? (
                 <div className="dashboard-loading">
                     <div className="loading-spinner-container">

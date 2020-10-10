@@ -3,8 +3,8 @@
     margin: 10px 20px 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    border: 1px solid #8dd7ff;
-    background: #90ccff;
+    color: aliceblue;
+    background: #0467fb;
     max-width: 500px;
     .wrapper {
         display: flex;
@@ -38,6 +38,7 @@
         padding: 10px;
         border-radius: 5px;
         transition: 0.4s ease;
+        color: #0c0c0c;
     }
 
     .show {

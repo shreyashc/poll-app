@@ -2,8 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Option from "../../components/Option/Option";
 import axiosInstance from "../../client/apiClient";
-import "./style.scss";
+// import "./style.scss";
+import "./styles2.scss";
+
 import { BG_COLORS, FRONTEND_URL } from "../../utils/constants";
+const options = {
+    title: {
+        display: true,
+        text: "Info Graphics",
+        responsive: true,
+        maintainAspectRatio: false,
+        defaultFontSize: "14px",
+    },
+};
 const PollDetails = (props) => {
     const [poll, setPoll] = useState(null);
     const [data, setData] = useState({});
@@ -65,59 +76,62 @@ const PollDetails = (props) => {
     const copyToClipBoard = () => {
         navigator.clipboard.writeText(pollUrl);
     };
-    const options = {
-        title: {
-            display: true,
-            text: "Info Graphics",
-
-            responsive: true,
-            maintainAspectRatio: true,
-            defaultFontSize: "14px",
-        },
-    };
 
     return (
-        <div className="poll-details-continer">
+        <>
             {poll ? (
-                <div className="poll-left-container">
-                    <div className="question">{poll.question}</div>
-                    <div className="link-details">
-                        <div className="link-text">poll url:</div>
-                        <div className="link">
-                            {pollUrl}
-                            <button
-                                className="clipboard-btn"
-                                onClick={copyToClipBoard}
-                            >
-                                {" "}
-                                <i className="fa fa-clipboard"></i>{" "}
-                            </button>
+                <div>
+                    <h1>Poll details</h1>
+                    <div className="poll-details-question">{poll.question}</div>
+                    <div className="poll-details-continer">
+                        <div className="poll-left-container">
+                            <div className="link-details">
+                                <div className="link-text">poll url:</div>
+                                <div className="link">
+                                    <a href={pollUrl}>{pollUrl}</a>
+                                    <button
+                                        className="clipboard-btn"
+                                        onClick={copyToClipBoard}
+                                    >
+                                        {" "}
+                                        <i className="fa fa-clipboard"></i>{" "}
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="options-list">
+                                {poll.options.map((opt) => (
+                                    <Option opt={opt} key={opt._id} />
+                                ))}
+                            </div>
+                            {!poll.active ? (
+                                <div className="ended">Poll has been Ended</div>
+                            ) : null}
+                            <div className="btns-wrap">
+                                {poll.active ? (
+                                    <button
+                                        id="end-poll-btn"
+                                        onClick={handleEnd}
+                                    >
+                                        End Poll
+                                    </button>
+                                ) : null}
+                                <div>
+                                    <button
+                                        onClick={handleDelete}
+                                        id="delete-poll-btn"
+                                    >
+                                        Delete Poll
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="options-list">
-                        {poll.options.map((opt) => (
-                            <Option opt={opt} key={opt._id} />
-                        ))}
-                    </div>
-
-                    {poll.active ? (
-                        <button id="end-poll-btn" onClick={handleEnd}>
-                            End Poll
-                        </button>
-                    ) : (
-                        <div className="ended">Poll has Ended</div>
-                    )}
-                    <div>
-                        <button onClick={handleDelete} id="delete-poll-btn">
-                            Delete Poll
-                        </button>
+                        <div className="chart-container">
+                            <Doughnut data={data} options={options} />
+                        </div>
                     </div>
                 </div>
             ) : null}
-            <div className="chart-container">
-                <Doughnut data={data} options={options} />
-            </div>
-        </div>
+        </>
     );
 };
 

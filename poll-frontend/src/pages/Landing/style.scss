@@ -1,0 +1,48 @@
+.landing-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: space-around;
+    font-family: "Source Sans Pro", sans-serif;
+
+    .poll {
+        margin-bottom: 50px;
+        h1 {
+            font-size: 50px;
+            text-align: left;
+            color: #4473ef;
+        }
+        .txt {
+            font-size: 30px;
+        }
+
+        .buttons {
+            margin-top: 40px;
+        }
+
+        .signup-btn,
+        .login-btn {
+            border-radius: 4px;
+            background: #4b59f7;
+            white-space: nowrap;
+            padding: 10px 20px;
+            margin-right: 12px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .login-btn {
+            background: #fdf912;
+            color: black;
+        }
+    }
+    .poll-svg {
+        width: 50%;
+        img {
+            width: 90%;
+        }
+    }
+}

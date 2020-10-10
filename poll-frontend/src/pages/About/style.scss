@@ -1,0 +1,35 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+
+    .about {
+        width: 60%;
+        padding: 50px;
+        background: #4b59f7;
+        border-radius: 10px;
+        color: aliceblue;
+    }
+
+    .item {
+        margin-bottom: 30px;
+    }
+
+    .owner {
+        margin-top: 70px;
+        font-size: 30px;
+    }
+
+    .social a {
+        padding: 10px 7px;
+        color: #fff;
+        font-size: 25px;
+        transition: 0.4s ease;
+    }
+    .social a:hover {
+        color: black;
+    }
+}

@@ -1,0 +1,112 @@
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-container {
+    background: #101522;
+    height: 80px;
+    display: flex;
+    align-items: stretch;
+    font-size: 1.2rem;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+
+        .logo {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bolder;
+            font-size: 30px;
+            margin-left: 20%;
+
+            i {
+                color: #fdf912;
+            }
+        }
+    }
+
+    .menu-btn {
+        display: none;
+        font-size: 1.8rem;
+    }
+    .nav-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            .nav-item {
+                cursor: pointer;
+                margin: 0 10px;
+            }
+
+            .nav-link {
+                color: #fff;
+                font-size: 1.4rem;
+                text-decoration: none;
+                font-weight: bolder;
+                transition: 0.2s ease-in-out;
+            }
+
+            .nav-link:hover {
+                color: #0d76ff;
+            }
+
+            .nav-link.active {
+                border-bottom: 2px solid #0d76ff;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .nav-container {
+        .menu-btn {
+            color: #fff;
+            display: block;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(-100%, 60%);
+        }
+        .nav-right {
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: initial;
+                width: 100%;
+                height: 90vh;
+                position: absolute;
+                top: 78px;
+                left: 0;
+                opacity: 1;
+                transition: all 0.5s ease;
+                background: #101522;
+                .nav-item {
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 15px 30px;
+                }
+
+                .nav-link {
+                    color: #fff;
+                    font-size: 1.8rem;
+                    text-decoration: none;
+                    font-weight: bolder;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            .nav-links.close {
+                left: -100%;
+            }
+        }
+    }
+}

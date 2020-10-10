@@ -12,19 +12,19 @@
         background: #fff;
         padding: 10px;
         border-radius: 10px;
-        margin-top: 20%;
+        margin-top: 40px;
     }
-
     label {
         display: inline-block;
         padding: 5px;
         margin-right: 5px;
+        color: #1e34d2;
     }
     .form-group {
         display: flex;
         align-items: center;
-        padding: 20px;
-        margin: 10px 5px;
+        padding: 10px;
+        margin: 20px 5px 10px;
         border-radius: 8px;
     }
 
@@ -36,8 +36,10 @@
         border-left: 0;
         border-right: 0;
         border-bottom: 1px solid #ddd;
+        transition: border-color 0.4s ease;
         &:focus {
             outline: 0;
+            border-color: #4e42ff;
         }
         &::placeholder {
             font-size: 12px;
@@ -47,13 +49,15 @@
     #submit {
         display: inline-block;
         margin: 10px auto;
+        border-radius: 4px;
+        background: #4b59f7;
+        white-space: nowrap;
         padding: 10px 20px;
-        background-color: #000;
         color: #fff;
-        font-size: 20px;
-        border: none;
-        border-radius: 12px;
+        font-size: 16px;
         outline: none;
+        border: none;
+        cursor: pointer;
 
         &:disabled {
             background-color: rgb(105, 105, 105);
