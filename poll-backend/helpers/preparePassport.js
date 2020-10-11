@@ -15,7 +15,7 @@ module.exports = function (app, MongoStore) {
             rolling: true,
             cookie: {
                 maxAge: 1000 * 365 * 24 * 60 * 60 * 100,
-                sameSite: "None",
+                sameSite: "none",
                 secure: true,
             },
             store: new MongoStore({ mongooseConnection: mongoose.connection }),
