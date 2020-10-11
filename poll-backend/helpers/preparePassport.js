@@ -3,26 +3,26 @@ const User = require("../models/User.model");
 const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const dotenv = require("dotenv").config();
-const mongoose = require('mongoose')
-const cookieParser = require('cookie-parser')
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
-module.exports = function (app,MongoStore) {
+module.exports = function (app, MongoStore) {
     app.use(
         session({
             secret: process.env.SESSION_SECRET,
             resave: false,
             saveUninitialized: false,
             rolling: true,
-            cookie: { 
+            cookie: {
                 maxAge: 1000 * 365 * 24 * 60 * 60 * 100,
-                sameSite:"none",
-                secure:true
-                },
+                sameSite: "None",
+                secure: true,
+            },
             store: new MongoStore({ mongooseConnection: mongoose.connection }),
         })
     );
 
-    app.use(cookieParser(process.env.SESSION_SECRET))
+    app.use(cookieParser(process.env.SESSION_SECRET));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use((req, res, next) => {
