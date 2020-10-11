@@ -1,4 +1,4 @@
-export const FRONTEND_URL = "https://shreyashc.github.io/";
+export const FRONTEND_URL = "https://shreyashc.github.io/poll-app/";
 
 export const API_BASE_URL = "https://hc-poll.herokuapp.com/";
 
