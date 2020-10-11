@@ -6,8 +6,8 @@ const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
-app.set("trust proxy", true);
 module.exports = function (app, MongoStore) {
+    app.set("trust proxy", true);
     app.use(
         session({
             secret: process.env.SESSION_SECRET,
