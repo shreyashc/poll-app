@@ -8,7 +8,6 @@ const Dashboard = (props) => {
     const [polls, setPolls] = useState([]);
     const { user, dispatch } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
-
     useEffect(() => {
         let isMounted = true;
         if (isMounted) setLoading(true);

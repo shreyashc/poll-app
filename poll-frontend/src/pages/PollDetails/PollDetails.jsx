@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import Option from "../../components/Option/Option";
 import axiosInstance from "../../client/apiClient";
-// import "./style.scss";
-import "./styles2.scss";
+import "./style.scss";
 
 import { BG_COLORS, FRONTEND_URL } from "../../utils/constants";
 const options = {
@@ -18,17 +17,28 @@ const options = {
 const PollDetails = (props) => {
     const [poll, setPoll] = useState(null);
     const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [ending, setEnding] = useState(false);
+    const [deleting, setDeleting] = useState(false);
     const id = props.match.params.id;
     const pollUrl = `${FRONTEND_URL}/vote/${id}`;
+
     useEffect(() => {
+        let isMounted = true;
+        if (isMounted) setLoading(true);
         axiosInstance
             .get(`polls/${id}`)
             .then((response) => {
+                if (isMounted) setLoading(false);
                 setPoll(response.data);
             })
             .catch((err) => {
+                if (isMounted) setLoading(false);
                 console.log(err);
             });
+        return () => {
+            return (isMounted = false);
+        };
     }, [id]);
 
     useEffect(() => {
@@ -53,28 +63,41 @@ const PollDetails = (props) => {
     }, [poll]);
 
     const handleDelete = () => {
+        setDeleting(true);
         axiosInstance
             .delete(`polls/${id}`)
             .then(() => {
+                setDeleting(false);
                 props.history.replace("/dashboard");
             })
             .catch((err) => {
+                setDeleting(false);
                 console.log(err);
             });
     };
     const handleEnd = () => {
+        setEnding(true);
         axiosInstance
             .patch(`polls/${id}/end`)
             .then((response) => {
+                setEnding(false);
                 setPoll(response.data);
             })
             .catch((err) => {
+                setEnding(false);
                 console.log(err);
             });
     };
 
     return (
         <>
+            {loading ? (
+                <div className="poll-details-loading">
+                    <div className="loading-spinner-container">
+                        <i className="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+            ) : null}
             {poll ? (
                 <div>
                     <h1>Poll details</h1>
@@ -101,7 +124,7 @@ const PollDetails = (props) => {
                                         id="end-poll-btn"
                                         onClick={handleEnd}
                                     >
-                                        End Poll
+                                        {ending ? "Ending" : "End Poll"}
                                     </button>
                                 ) : null}
                                 <div>
@@ -109,7 +132,7 @@ const PollDetails = (props) => {
                                         onClick={handleDelete}
                                         id="delete-poll-btn"
                                     >
-                                        Delete Poll
+                                        {deleting ? "Deleting" : "Delete Poll"}
                                     </button>
                                 </div>
                             </div>

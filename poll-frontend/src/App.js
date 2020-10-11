@@ -11,7 +11,7 @@ import Vote from "./pages/Vote/Vote";
 import PollDetails from "./pages/PollDetails/PollDetails";
 import CreatePoll from "./pages/CreatePoll/CreatePoll";
 import Success from "./pages/Success/Success";
-import NavBar2 from "./components/NavBar/NavBar2";
+import NavBar from "./components/NavBar/NavBar";
 import About from "./pages/About/About";
 import Landing from "./pages/Landing/Landing";
 
@@ -20,7 +20,7 @@ function App() {
         <Router>
             <div className="App">
                 <AuthContextProvider>
-                    <NavBar2 />
+                    <NavBar />
                     <Switch>
                         <PublicRoute exact path="/" component={Landing} />
 

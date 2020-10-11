@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Logout from "../Logout/Logout";
 import { AuthContext } from "../../contexts/AuthContext";
-import "./style2.scss";
+import "./style.scss";
 
-const NavBar2 = () => {
+const NavBar = () => {
     const [open, setOpen] = useState(false);
     const closeMenu = () => setOpen(false);
     const openMenu = () => setOpen(true);
@@ -96,4 +96,4 @@ const NavBar2 = () => {
     );
 };
 
-export default NavBar2;
+export default NavBar;

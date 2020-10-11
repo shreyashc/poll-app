@@ -33,12 +33,15 @@ const SignUpForm = (props) => {
             .then((response) => {
                 setLoading(false);
                 setError(null);
-                console.log(response.data);
                 props.history.push("/login");
             })
             .catch((error) => {
                 setLoading(false);
-                setError(error.response.data.message);
+                if (error.response) {
+                    setError(error.response.data.message);
+                } else {
+                    setError("Please check you Internet connection");
+                }
             });
     };
 
