@@ -4,7 +4,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/LogIn/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import { Route, HashRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import Vote from "./pages/Vote/Vote";
