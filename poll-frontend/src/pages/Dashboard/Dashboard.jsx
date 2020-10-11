@@ -21,10 +21,12 @@ const Dashboard = (props) => {
             .catch((err) => {
                 if (isMounted) setLoading(false);
                 console.log(err);
-                if (err.response.status === 401) {
-                    localStorage.clear("user");
-                    dispatch({ type: "LOGGED_OUT" });
-                    props.history.replace("/");
+                if (err.response) {
+                    if (err.response.status === 401) {
+                        localStorage.clear("user");
+                        dispatch({ type: "LOGGED_OUT" });
+                        props.history.replace("/");
+                    }
                 }
             });
         return () => {

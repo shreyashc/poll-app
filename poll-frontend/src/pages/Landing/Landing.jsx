@@ -40,7 +40,7 @@ const Landing = () => {
                 </div>
                 <div>Get Started Now.</div>
                 <div className="buttons">
-                    <Link to="/login" className="signup-btn">
+                    <Link to="/signup" className="signup-btn">
                         Sign Up
                     </Link>
                     <Link to="/login" className="login-btn">
