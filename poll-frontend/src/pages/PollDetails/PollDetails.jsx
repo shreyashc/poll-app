@@ -21,7 +21,7 @@ const PollDetails = (props) => {
     const [ending, setEnding] = useState(false);
     const [deleting, setDeleting] = useState(false);
     const id = props.match.params.id;
-    const pollUrl = `${FRONTEND_URL}vote/${id}`;
+    const pollUrl = `${FRONTEND_URL}#/vote/${id}`;
 
     useEffect(() => {
         let isMounted = true;
