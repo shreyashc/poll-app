@@ -6,6 +6,7 @@ const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
+app.set("trust proxy", true);
 module.exports = function (app, MongoStore) {
     app.use(
         session({
@@ -13,10 +14,11 @@ module.exports = function (app, MongoStore) {
             resave: false,
             saveUninitialized: false,
             rolling: true,
+            proxy: true,
             cookie: {
                 httpOnly: true,
                 sameSite: "none",
-                Secure: true,
+                secure: true,
                 maxAge: 1000 * 365 * 24 * 60 * 60 * 100,
             },
             store: new MongoStore({ mongooseConnection: mongoose.connection }),
