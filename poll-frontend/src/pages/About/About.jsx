@@ -11,10 +11,18 @@ const About = () => {
                 <div className="owner">
                     <div className="hc">&copy; SHREYAS H C</div>
                     <div className="social">
-                        <a href="https://github.com/shreyashc">
+                        <a
+                            href="https://github.com/shreyashc"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fab fa-github"></i>
                         </a>
-                        <a href="mailto:shreyashc018@gmail.com">
+                        <a
+                            href="mailto:shreyashc018@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <i className="fas fa-envelope"></i>
                         </a>
                     </div>

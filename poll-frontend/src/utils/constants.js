@@ -1,4 +1,7 @@
 export const FRONTEND_URL = "http://localhost:3000";
+
+export const API_BASE_URL = "https://hc-poll.herokuapp.com/";
+
 export const BG_COLORS = [
     "rgb(255, 154, 60)",
     "rgb(240, 47, 89)",

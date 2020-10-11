@@ -40,7 +40,7 @@ const SignUpForm = (props) => {
                 if (error.response) {
                     setError(error.response.data.message);
                 } else {
-                    setError("Please check you Internet connection");
+                    setError("Someting went wrong :(");
                 }
             });
     };
