@@ -6,6 +6,9 @@ import "./style.scss";
 const cardVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
+    transition: {
+        duration: 0.1,
+    },
 };
 const PollCard = ({ poll, ...props }) => {
     const onClick = () => {
