@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const VoteController = require("../controllers/vote.controller");
+const VoteController = require("../controllers/Vote.controller");
 
 //@route /vote/
 
