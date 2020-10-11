@@ -25,31 +25,6 @@
         a {
             color: #f9700f;
         }
-
-        .clipboard-btn {
-            background: none;
-            border: none;
-            font-size: 25px;
-            padding: 0px 10px;
-            color: #414141;
-            &:hover {
-                cursor: pointer;
-            }
-            &:hover::after {
-                content: "cick to copy";
-                left: 10px;
-                font-size: 12px;
-            }
-
-            &:focus {
-                outline: none;
-                opacity: 0.9;
-            }
-            &:focus::after {
-                content: "copied to clipboard";
-                font-size: 12px;
-            }
-        }
     }
 
     #delete-poll-btn,
@@ -90,11 +65,10 @@
 }
 
 .poll-details-question {
-    margin-left: 16px;
+    margin: 30px 16px 5px;
     font-size: 35px;
-    margin-bottom: 20px;
     font-weight: bold;
-    color: #1b1b1b;
+    color: #383737;
 }
 
 .btns-wrap {

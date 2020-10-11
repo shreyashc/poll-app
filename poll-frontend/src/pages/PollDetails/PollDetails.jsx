@@ -73,10 +73,6 @@ const PollDetails = (props) => {
             });
     };
 
-    const copyToClipBoard = () => {
-        navigator.clipboard.writeText(pollUrl);
-    };
-
     return (
         <>
             {poll ? (
@@ -89,13 +85,6 @@ const PollDetails = (props) => {
                                 <div className="link-text">poll url:</div>
                                 <div className="link">
                                     <a href={pollUrl}>{pollUrl}</a>
-                                    <button
-                                        className="clipboard-btn"
-                                        onClick={copyToClipBoard}
-                                    >
-                                        {" "}
-                                        <i className="fa fa-clipboard"></i>{" "}
-                                    </button>
                                 </div>
                             </div>
                             <div className="options-list">

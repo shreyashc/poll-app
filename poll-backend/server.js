@@ -7,11 +7,26 @@ const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 app.use(express.json());
+
+
+allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
+console.log(allowedOrigins)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin:function (origin, callback) {
+  	console.log(origin)
+    if (!origin) return callback(null, true);
+    console.log(allowedOrigins.indexOf(origin) === -1)
+    if (allowedOrigins.indexOf(origin) === -1) {
+    var err = httpError(401, 'Origin not allowed')
+      return callback(err, false);
+    }
+    return callback(null, true);
+  },
   methods: ['POST', 'PATCH', 'GET', 'OPTIONS', 'HEAD','DELETE'],
   credentials: true
 }))
+
+
 require("./db/connectMongo")();
 require("./helpers/preparePassport")(app,MongoStore);
 
@@ -33,6 +48,7 @@ app.use((err, req, res, next) => {
         status: err.status || 500,
         message: err.message,
     });
+    console.log(err.message)
 });
 
 const PORT = process.env.PORT || 1337;

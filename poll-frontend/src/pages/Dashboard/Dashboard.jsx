@@ -6,7 +6,7 @@ import "./style.scss";
 import { AuthContext } from "../../contexts/AuthContext";
 const Dashboard = (props) => {
     const [polls, setPolls] = useState([]);
-    const { user } = useContext(AuthContext);
+    const { user, dispatch } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -21,11 +21,16 @@ const Dashboard = (props) => {
             .catch((err) => {
                 if (isMounted) setLoading(false);
                 console.log(err);
+                if (err.response.status === 401) {
+                    localStorage.clear("user");
+                    dispatch({ type: "LOGGED_OUT" });
+                    props.history.replace("/");
+                }
             });
         return () => {
             return (isMounted = false);
         };
-    }, []);
+    }, [props.history, dispatch]);
 
     const addPoll = () => {
         props.history.push("/create-poll");

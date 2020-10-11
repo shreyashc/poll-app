@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Logout from "./components/Logout/Logout";
 import AuthContextProvider from "./contexts/AuthContext";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/LogIn/Login";
@@ -46,7 +45,6 @@ function App() {
                         <Route path="/about" component={About} />
 
                         <PublicRoute path="/signup" component={SignUp} />
-                        <Route path="/Logout" component={Logout} />
                         <Route path="/vote/:id" component={Vote} />
                         <Route path="/success" component={Success} />
                     </Switch>
