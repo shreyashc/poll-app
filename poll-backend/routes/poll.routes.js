@@ -6,7 +6,7 @@ const PollController = require("../controllers/Poll.controller");
 
 //@route /polls/
 
-router.get("/", PollController.getAllPolls);
+// router.get("/", PollController.getAllPolls);
 
 router.post("/", auth.isAuthenticated, PollController.createNewPoll);
 
